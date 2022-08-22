@@ -87,7 +87,7 @@ public class RemoteAuthenticationService<
         IOptionsSnapshot<RemoteAuthenticationOptions<TProviderOptions>> options,
         NavigationManager navigation,
         AccountClaimsPrincipalFactory<TAccount> accountClaimsPrincipalFactory,
-        ILogger<RemoteAuthenticationService<TRemoteAuthenticationState, TAccount, TProviderOptions>> logger)
+        ILogger<RemoteAuthenticationService<TRemoteAuthenticationState, TAccount, TProviderOptions>>? logger)
     {
         JsRuntime = jsRuntime;
         Navigation = navigation;
@@ -185,7 +185,7 @@ public class RemoteAuthenticationService<
             } : null);
     }
 
-    private string GetReturnUrl(string customReturnUrl) =>
+    private string GetReturnUrl(string? customReturnUrl) =>
         customReturnUrl != null ? Navigation.ToAbsoluteUri(customReturnUrl).AbsoluteUri : Navigation.Uri;
 
     private async Task<ClaimsPrincipal> GetUser(bool useCache = false)
