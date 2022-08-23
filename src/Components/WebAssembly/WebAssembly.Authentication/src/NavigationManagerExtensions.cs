@@ -32,19 +32,13 @@ public static class NavigationManagerExtensions
     /// <param name="returnUrl">The url to redirect the user to after logging out.</param>
     public static void NavigateToLogout(this NavigationManager manager, string logoutPath, string? returnUrl)
     {
-        InteractiveRequestOptions? request = null;
-        if (returnUrl != null)
-        {
-            request = new InteractiveRequestOptions
-            {
-                Interaction = InteractionType.SignOut,
-                ReturnUrl = returnUrl
-            };
-        }
-
         manager.NavigateTo(logoutPath, new NavigationOptions
         {
-            HistoryEntryState = request?.ToState()
+            HistoryEntryState = new InteractiveRequestOptions
+            {
+                Interaction = InteractionType.SignOut,
+                ReturnUrl = returnUrl!
+            }.ToState()
         });
     }
 
