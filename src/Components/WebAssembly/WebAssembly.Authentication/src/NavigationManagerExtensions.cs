@@ -37,7 +37,7 @@ public static class NavigationManagerExtensions
             HistoryEntryState = new InteractiveRequestOptions
             {
                 Interaction = InteractionType.SignOut,
-                ReturnUrl = returnUrl ?? manager.Uri
+                ReturnUrl = returnUrl
             }.ToState()
         });
     }
