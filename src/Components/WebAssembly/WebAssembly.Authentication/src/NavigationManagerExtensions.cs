@@ -38,7 +38,7 @@ public static class NavigationManagerExtensions
             request = new InteractiveRequestOptions
             {
                 Interaction = InteractionType.SignOut,
-                ReturnUrl = returnUrl!
+                ReturnUrl = returnUrl
             };
         }
 
